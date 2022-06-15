@@ -54,17 +54,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->update($request->all());
+        return $product;
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return int
      */
     public function destroy($id)
     {
-        //
+        return Product::destroy($id);
     }
 }
